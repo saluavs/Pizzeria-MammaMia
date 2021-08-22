@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <div class="container">
+      <div class="row py-5 pizzas">
+        <div class="col-12 col-sm-3 mb-4 pizza" v-for="(pizza, i) in pizzas" :key="i">
+          <!-- :pizzas es el padre -->
+          <Card :pizzas="pizza" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Header from "@/components/Header.vue";
+import Card from "@/components/Card.vue";
+import { mapState } from "vuex";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    Header,
+    Card,
+  },
+  computed: {
+    ...mapState(["pizzas"]),
+  },
+};
 </script>
