@@ -1,4 +1,4 @@
-# mammamia
+# Pizzería Mamma Mía
 
 ## Project setup
 ```
